@@ -1,0 +1,13 @@
+label{
+    font-size:17px;
+}
+form{
+    padding:3px;
+    padding-bottom:5px;
+}
+#formSection{
+    background-color: hsl(0, 0%, 87%);
+}
+#searchbar{
+    background-color: hsl(65, 100%, 87%);
+}

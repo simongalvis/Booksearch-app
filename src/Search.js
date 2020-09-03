@@ -8,7 +8,14 @@ class Search extends React.Component{
 render(){
 
 
-    return <div>I am a div</div>
+    return( 
+    <div id='formSection'>
+        <form>
+            <label htmlFor='searchbar'>Search: </label>
+            <input type='text' name='searchbar' id='searchbar' />
+            <input type='submit' value='Search'/>
+        </form>
+    </div>)
 }
 
 
