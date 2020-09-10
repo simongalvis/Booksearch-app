@@ -1,0 +1,22 @@
+ul{
+    padding-inline-start: 0;
+}
+.bookItem{
+    
+    padding: 5%;
+    background-color:white;
+    border-bottom:black 1px solid;
+    list-style-type: none;
+    width: 100%;
+    
+}
+.bookItemContent{
+    display: flex;
+}
+.bookItemInfo{
+    flex:3;
+}
+
+.bookThumbnail{
+    flex:1;
+}

@@ -5,7 +5,7 @@ import './Search.css'
 
 class Search extends React.Component{
 
-render(props){
+render(){
 
 
 
@@ -14,14 +14,17 @@ render(props){
 
 
     return( 
-    <div id='formSection'>
+    <div id='formSection' onSubmit={(e)=>this.props.submitHandler(e)}>
         <form>
             <label htmlFor='searchbar'>Search: </label>
-            <input type='text' name='searchbar' id='searchbar' onChange={this.props.submitHandler} />
-            <input type='submit' value='Search' onSubmit={(e)=>this.props.submitHandler(e)}/>
+            <input  type='text' name='searchbar' id='searchbar'
+             onChange={e => this.props.titleChanged(e.target.value)}
+              />
+            <input type='submit' value='Search' />
         </form>
     </div>)
 }
+
 
 
 
