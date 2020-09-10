@@ -16,83 +16,83 @@ const searchUrl = 'https://www.googleapis.com/books/v1/volumes?'
 
 
 //format the query parameters
- const formatQueryParams = (params) =>{
-  const queryItems = Object.keys(params)
-  .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+const formatQueryParams = (params) =>{
+const queryItems = Object.keys(params)
+.map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
 return queryItems.join('&');
-
- }
+}
 
 
 class App extends React.Component {
 
-  submitHandler = (e) =>{
-e.preventDefault();
+submitHandler = (e) =>{
+  e.preventDefault();
 
-
-   let params ={
+//Create parameters for dynamically generated URL
+  let params ={
     q:this.state.title,
     printType: this.state.printType,
     filter: this.state.bookType,
     maxResults: 40, 
   }
 
-
-
-
-let url = searchUrl + formatQueryParams(params);
-console.log(url);
+  let url = searchUrl + formatQueryParams(params);
+  //console.log(url);
   
   fetch(url)
-.then()
-.then(response =>{
-  console.log('About to check for errors');
-  if(!response.ok){
-    console.log('An error did occur, let\'s throw an error')
+    .then()
+    .then(response =>{
+    //console.log('About to check for errors');
+    if(!response.ok){
+    //console.log('An error did occur, let\'s throw an error')
     throw new Error('Something went brutally wrong'); //throw error here
   }
-  return response;
+    return response;
 })
-.then(response => response.json())
-.then(responseJson => this.setState({
-  result: responseJson,
-  shouldRender: true
+    .then(response => response.json())
+    .then(responseJson => this.setState({
+          result: responseJson,
+          shouldRender: true
 }))
-.catch(err => console.log('we had a big error: ', err))
-  console.log('Submit handler message recieved')
+    .catch(err => console.log('we had a big error: ', err))
+     //console.log('Submit handler message recieved')
   }
 
+
 //initialize state
-state = {
-  queryString: searchUrl,
-  result:'',
-  printType: 'all',
-  bookType: 'partial',
-  shouldRender: false,
-
+  state = {
+    queryString: searchUrl,
+    result:'',
+    printType: 'all',
+    bookType: 'partial',
+    shouldRender: false,
 }
 
 
-titleChanged = (title) =>{
-   this.setState({ title }); 
-  // const queryStringg = this.state.queryString //+ this.formatQueryParams(this.params) 
-   // console.log(queryStringg) 
-   console.log(title); }
+  titleChanged = (title) =>{
+    this.setState({ title }); 
+    // const queryStringg = this.state.queryString //+ this.formatQueryParams(this.params) 
+    // console.log(queryStringg) 
+    //console.log(title);
+   }
 
-printTypeChanged = (printType) =>{
-  this.setState({printType});
-  console.log(printType);
+//Handle change in print type    
+  printTypeChanged = (printType) =>{
+    this.setState({printType});
+    //console.log(printType);
 }
-bookTypeChanged = (bookType) =>{
-  this.setState({bookType});
-  console.log(bookType);
+
+//Handle change in print type(filter)
+  bookTypeChanged = (bookType) =>{
+    this.setState({bookType});
+    //console.log(bookType);
 }
 
    
 
 
 
-//make call to google book api  
+
 
 
 
@@ -122,5 +122,6 @@ const renderbooks = this.state.shouldRender
   );
 }
 }
+
 export default App;
 

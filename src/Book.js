@@ -7,7 +7,7 @@ import './Book.css';
 
 class Book extends React.Component{
 
-
+//Format Book items
 renderBooks = () =>{
     return this.props.result.items.map((item, key) => (
         <li className='bookItem' key={key}>
@@ -17,7 +17,7 @@ renderBooks = () =>{
                     <img className='bookItemThumbnail' alt='bookThumbnail'  src={item.volumeInfo.imageLinks.thumbnail}/>
                 </a>
             <p className='bookItemInfo'>Author: {item.volumeInfo.authors}<br/>
-            Price: {item.saleInfo.country}
+                                        Price: {item.saleInfo.country}
             </p><br/>
             
             
